@@ -13,7 +13,7 @@ function install_plugin(){
   HWFILE=/opt/google/chrome/PepperFlash/libpepflashplayer.so;
     
   if [ -f $HWFILE ];then
-     sudo apt-get install build-essential git cmake pkg-config libglib2.0-dev libasound2-dev libx11-dev libgl1-mesa-dev libgles2-mesa-dev liburiparser-dev libcairo2-dev libpango1.0-dev libpangocairo-1.0-0 libpangoft2-1.0-0 libfreetype6-dev libgtk2.0-dev libxinerama-dev libconfig-dev libevent-dev;
+     sudo apt-get install build-essential git cmake pkg-config libglib2.0-dev libasound2-dev libx11-dev libgl1-mesa-dev libgles2-mesa-dev liburiparser-dev libcairo2-dev libpango1.0-dev libpangocairo-1.0-0 libpangoft2-1.0-0 libfreetype6-dev libgtk2.0-dev libxinerama-dev libconfig-dev libevent-dev libssl-dev;
   else 
      sudo add-apt-repository -y ppa:skunk/pepper-flash;
      sudo apt-get update;
