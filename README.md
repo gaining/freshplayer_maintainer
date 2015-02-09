@@ -2,8 +2,6 @@
 
 
 ----------------------------------
-
-Author: gaining
 This script facilitates the installation and maintenance of freshplayer plugin on Debian based systems
 Fresh player wrapper is mainly developed by i-rinat https://github.com/i-rinat/freshplayerplugin 
 Version 1.1
