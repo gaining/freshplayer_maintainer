@@ -6,6 +6,8 @@
 # Version 2.0
 # To run this scrip, open the terminal type: chmod +x freshplayer_maintainer.sh; ./freshplayer_maintainer.sh
 # Contact me at: gaining77@outlook.com
+# file can also be downloaded using my dropbox link with the command: 
+# wget -O freshplayer_maintainer.sh https://db.tt/rHEJ2e0l
 
 
 function install_plugin(){
