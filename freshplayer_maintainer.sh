@@ -69,7 +69,7 @@ function enable_disable_hW(){
      rm  $HWFILE;
     printf "Hardware acceleration DISABLED \n\n"
   else 
-    echo exp_enable_3d = 1 > $HWFILE;
+    echo enable_3d = 1 > $HWFILE;
     echo "flash_command_line = \"enable_hw_video_decode=1,enable_stagevideo_auto=1\"" >>$HWFILE
     printf "Hardware acceleration ENABLED \n\n"
     
@@ -108,7 +108,7 @@ k=1
 
 clear
 
-printf "Welcome to fresh player plugin Maintainer v1.1 \n\n"
+printf "Welcome to fresh player plugin Maintainer v2.0 \n\n"
 
 PS3='Choose an option: '
 
