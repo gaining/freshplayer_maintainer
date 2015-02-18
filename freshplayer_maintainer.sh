@@ -1,6 +1,7 @@
 #!/bin/bash
 # ----------------------------------
 # Author: gaining
+# find out more at  https://github.com/gaining/freshplayer_maintainer
 # This script facilitates the installation and maintenance of freshplayer plugin on Debian based systems
 # Fresh player wrapper is mainly developed by i-rinat https://github.com/i-rinat/freshplayerplugin 
 # Version 2.0
