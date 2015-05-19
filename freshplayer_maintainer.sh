@@ -1,6 +1,7 @@
 #!/bin/bash
 # ----------------------------------
 # Author: gaining
+# Must run as root
 # find out more at  https://github.com/gaining/freshplayer_maintainer
 # This script facilitates the installation and maintenance of freshplayer plugin on Debian based systems
 # Fresh player wrapper is mainly developed by i-rinat https://github.com/i-rinat/freshplayerplugin
@@ -24,14 +25,14 @@ OPERADIR=/usr/lib/opera/plugins
 function install_plugin(){
   echo "Getting dependencies..."
   if [ -f $PEPFLASH ];then
-    sudo apt-get install build-essential git cmake pkg-config libglib2.0-dev libasound2-dev libx11-dev libgl1-mesa-dev libgles2-mesa-dev liburiparser-dev libcairo2-dev libpango1.0-dev libpangocairo-1.0-0 libpangoft2-1.0-0 libfreetype6-dev libgtk2.0-dev libxinerama-dev libconfig-dev libevent-dev libssl-dev;
+     apt-get install libv4l2rds0 libv4l-dev build-essential git cmake pkg-config libglib2.0-dev libasound2-dev libx11-dev libgl1-mesa-dev libgles2-mesa-dev liburiparser-dev libcairo2-dev libpango1.0-dev libpangocairo-1.0-0 libpangoft2-1.0-0 libfreetype6-dev libgtk2.0-dev libxinerama-dev libconfig-dev libevent-dev libssl-dev;
   else
-    sudo add-apt-repository -y ppa:skunk/pepper-flash;
-    sudo apt-get update;
-    sudo apt-get install --no-install-recommends pepflashplugin-installer ;
-    sudo apt-get install build-essential git cmake pkg-config libglib2.0-dev libasound2-dev libx11-dev libgl1-mesa-dev libgles2-mesa-dev liburiparser-dev libssl-dev libcairo2-dev libpango1.0-dev libpangocairo-1.0-0 libpangoft2-1.0-0 libfreetype6-dev libgtk2.0-dev libxinerama-dev libconfig-dev libevent-dev ragel;
-    sudo mkdir -p /opt/google/chrome/PepperFlash;
-    sudo ln -s /usr/lib/pepflashplugin-installer/libpepflashplayer.so /opt/google/chrome/PepperFlash;
+     add-apt-repository -y ppa:skunk/pepper-flash;
+     apt-get update;
+     apt-get install --no-install-recommends pepflashplugin-installer ;
+     apt-get install libv4l2rds0 libv4l-dev build-essential git cmake pkg-config libglib2.0-dev libasound2-dev libx11-dev libgl1-mesa-dev libgles2-mesa-dev liburiparser-dev libssl-dev libcairo2-dev libpango1.0-dev libpangocairo-1.0-0 libpangoft2-1.0-0 libfreetype6-dev libgtk2.0-dev libxinerama-dev libconfig-dev libevent-dev ragel;
+     mkdir -p /opt/google/chrome/PepperFlash;
+     ln -s /usr/lib/pepflashplugin-installer/libpepflashplayer.so /opt/google/chrome/PepperFlash;
   fi
   
   cd;
@@ -47,8 +48,8 @@ function install_plugin(){
     read -p "Install plugin system wide? [Y/N] " yn
     
     case "$yn" in
-      y|Y)  sudo ln -fs $FRESHWRAP $FFDIR;
-        sudo ln -fs $FRESHWRAP $FFDIR;
+      y|Y)   ln -fs $FRESHWRAP $FFDIR;
+         ln -fs $FRESHWRAP $FFDIR;
       break;;
       n|N)  mkdir -p $FFDIR2;
         ln -s $FRESHWRAP $FFDIR2;
@@ -65,7 +66,7 @@ function install_plugin(){
 
 function uninstall_plugin(){
   rm -rf ~/freshplayerplugin;
-  sudo rm -f $FRESHCONF $FRESHFF $FRESHFF2 $FRESHOPERA;
+   rm -f $FRESHCONF $FRESHFF $FRESHFF2 $FRESHOPERA;
 }
 
 function update_plugin(){
@@ -89,15 +90,15 @@ function switch_HWA(){
 function switch_plugin(){
   
   if [[ -f $FRESHFF || -f $FRESHFF2 || -f $FRESHOPERA ]]; then
-    sudo rm -f $FRESHFF $FRESHFF2 $FRESHOPERA;
+     rm -f $FRESHFF $FRESHFF2 $FRESHOPERA;
     printf "fresh player plugin DISABLED \n\n"
   else
     while true
     do
       read -p "Enable system wide? (includes Opera browser)[Y/N]: " yn
       case "$yn" in
-        y|Y)sudo ln -sf $FRESHWRAP $FFDIR;
-          sudo ln -sf $FRESHWRAP $OPERADIR;
+        y|Y) ln -sf $FRESHWRAP $FFDIR;
+           ln -sf $FRESHWRAP $OPERADIR;
         break;;
         n|N)  ln -s $FRESHWRAP $FFDIR2
         break;;
