@@ -7,7 +7,7 @@
 # Fresh player wrapper is mainly developed by i-rinat https://github.com/i-rinat/freshplayerplugin
 # Version 2.1
 # To run this scrip, open the terminal type: chmod +x freshplayer_maintainer.sh; sudo ./freshplayer_maintainer.sh
-# Contact me at: gaining77@outlook.com
+# Contact me at: gaining7@outlook.com
 # Updated version of file can also be downloaded using my dropbox link with the command: wget -O freshplayer_maintainer.sh https://db.tt/rHEJ2e0l
 
 FRESHWRAP=~/freshplayerplugin/build/libfreshwrapper-pepperflash.so;
